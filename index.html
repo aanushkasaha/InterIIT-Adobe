@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Batch Image Resizer & Compressor</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>Batch Image Resizer.</h1>
+      <div class="controls">
+        <label class="switch">
+          <input id="modeToggle" type="checkbox">
+          <span class="slider"></span>
+        </label>
+        <span id="modeLabel">Day</span>
+      </div>
+    </header>
+
+    <section class="uploader glass">
+      <div id="dropZone" class="drop-zone">
+        <input id="fileInput" type="file" accept="image/*" multiple>
+        <p>Drag & drop images here or <button id="pickBtn" class="link-btn">choose files</button></p>
+        <small>Mobile friendly — test on phone</small>
+      </div>
+
+      <div class="options">
+        <label>Preset:
+          <select id="presetSelect">
+            <option value="custom">Custom</option>
+            <option value="1080x1080">Instagram — 1080×1080</option>
+            <option value="1080x1920">Story — 1080×1920</option>
+            <option value="1200x675">Twitter — 1200×675</option>
+          </select>
+        </label>
+        <label>Quality: <span id="qualityVal">90</span>%
+          <input id="quality" type="range" min="60" max="100" value="90">
+        </label>
+        <button id="processBtn" class="primary glass">Process All</button>
+        <button id="resetBtn" class="secondary">Reset</button>
+      </div>
+    </section>
+
+    <section class="preview" id="previewWrap">
+      <div class="summary glass">
+        <div id="progressWrap"><progress id="batchProgress" value="0" max="100"></progress></div>
+        <div id="sizeSummary">No images yet</div>
+      </div>
+      <div id="cards" class="cards"></div>
+    </section>
+
+    <footer class="actions">
+      <button id="downloadZip" class="primary glass" disabled>Download ZIP.</button>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
